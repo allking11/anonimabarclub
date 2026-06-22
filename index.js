@@ -141,13 +141,13 @@
 
     // Disable navigation buttons initially
     document.getElementById('btn-next-to-step-2').setAttribute('disabled', 'true');
-    document.getElementById('btn-next-to-step-2').className = 'px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
+    document.getElementById('btn-next-to-step-2').className = 'px-6 py-3.5 bg-white/10 hover:bg-gold hover:text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
     
     document.getElementById('btn-next-to-step-3').setAttribute('disabled', 'true');
-    document.getElementById('btn-next-to-step-3').className = 'px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
+    document.getElementById('btn-next-to-step-3').className = 'px-6 py-3.5 bg-white/10 hover:bg-gold hover:text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
     
     document.getElementById('btn-next-to-step-4').setAttribute('disabled', 'true');
-    document.getElementById('btn-next-to-step-4').className = 'px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
+    document.getElementById('btn-next-to-step-4').className = 'px-6 py-3.5 bg-white/10 hover:bg-gold hover:text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
 
     clearErrors();
     showWizardStep(1);
@@ -243,19 +243,19 @@
       btn.type = 'button';
       
       if (isClosed) {
-        btn.className = 'date-card py-3 px-2 border border-dark-border bg-dark-pure/30 opacity-30 cursor-not-allowed text-center flex flex-col items-center justify-center';
+        btn.className = 'date-card py-3.5 px-2.5 sm:py-4 border border-dark-border bg-dark-pure/30 opacity-30 cursor-not-allowed text-center flex flex-col items-center justify-center';
         btn.setAttribute('title', 'Establecimiento cerrado los Domingos y Lunes');
       } else {
-        btn.className = 'date-card py-3 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center flex flex-col items-center justify-center';
+        btn.className = 'date-card py-3.5 px-2.5 sm:py-4 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center flex flex-col items-center justify-center';
         btn.addEventListener('click', function () {
           selectDateCard(dateStr, btn, dayOfWeekIndex);
         });
       }
       
       btn.innerHTML = `
-        <span class="text-[9px] uppercase tracking-widest text-gray-500">${dayOfWeekShort}</span>
-        <span class="text-base font-bold font-serif text-white mt-1">${dayOfMonth}</span>
-        <span class="text-[8px] ${isClosed ? 'text-red-500' : 'text-gold'} mt-1 uppercase">${labelText}</span>
+        <span class="text-[10px] sm:text-xs uppercase tracking-wider text-gray-400">${dayOfWeekShort}</span>
+        <span class="text-lg sm:text-xl font-bold font-serif text-white mt-1">${dayOfMonth}</span>
+        <span class="text-[9px] sm:text-[10px] ${isClosed ? 'text-red-400' : 'text-gold'} mt-1 uppercase tracking-widest font-semibold">${labelText}</span>
       `;
 
       container.appendChild(btn);
@@ -287,13 +287,13 @@
     
     // Disable next button for step 2 since time selection is reset
     document.getElementById('btn-next-to-step-3').setAttribute('disabled', 'true');
-    document.getElementById('btn-next-to-step-3').className = 'px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
+    document.getElementById('btn-next-to-step-3').className = 'px-6 py-3.5 bg-white/10 hover:bg-gold hover:text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none';
 
     // Enable next button for step 1
     const nextBtn = document.getElementById('btn-next-to-step-2');
     if (nextBtn) {
       nextBtn.removeAttribute('disabled');
-      nextBtn.className = 'px-6 py-3 bg-gold text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300';
+      nextBtn.className = 'px-6 py-3.5 bg-gold text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300';
     }
   }
 
@@ -317,7 +317,7 @@
     availableSlots.forEach(slot => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'time-card py-3 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif text-sm';
+      btn.className = 'time-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif text-sm sm:text-base';
       btn.textContent = slot;
 
       btn.addEventListener('click', function () {
@@ -345,7 +345,7 @@
     const nextBtn = document.getElementById('btn-next-to-step-3');
     if (nextBtn) {
       nextBtn.removeAttribute('disabled');
-      nextBtn.className = 'px-6 py-3 bg-gold text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300';
+      nextBtn.className = 'px-6 py-3.5 bg-gold text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300';
     }
   }
 
@@ -366,7 +366,7 @@
     const nextBtn = document.getElementById('btn-next-to-step-4');
     if (nextBtn) {
       nextBtn.removeAttribute('disabled');
-      nextBtn.className = 'px-6 py-3 bg-gold text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300';
+      nextBtn.className = 'px-6 py-3.5 bg-gold text-black text-xs sm:text-sm uppercase tracking-widest font-bold transition-all duration-300';
     }
   }
 
