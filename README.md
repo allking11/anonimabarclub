@@ -1,6 +1,6 @@
-# Anónima Cocina & Bar 🍸🚪
+# Anónimo Cocina & Bar 🍸🚪
 
-Una experiencia digital premium y misteriosa diseñada para **Anónima Cocina & Bar / Anónima Bar Club**, un speakeasy de alta gama ubicado en Barranquilla, Colombia. 
+Una experiencia digital premium y misteriosa diseñada para **Anónimo Cocina & Bar / Anónima Bar Club**, un speakeasy de alta gama ubicado en Barranquilla, Colombia. 
 
 El sitio web combina un diseño visual inmersivo (estética de lujo oscura con acentos dorados y tipografía estilizada `Λ` en lugar de `A`) con características interactivas avanzadas para la reserva y visualización de la carta.
 
