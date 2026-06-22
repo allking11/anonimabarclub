@@ -678,6 +678,7 @@
         }
       });
     }
+  }
 
   // Execute initialization
   if (document.readyState === 'loading') {
