@@ -802,7 +802,7 @@ section {
     transform: scale(1) translateY(0);
 }
 
-/* Center HTML5 Dialog elements (overriding Tailwind Preflight resets) */
+/* Center HTML5 Dialog elements (overriding Tailwind Preflight resets) with smooth premium animation */
 dialog[open] {
     position: fixed;
     top: 50%;
@@ -810,6 +810,35 @@ dialog[open] {
     transform: translate(-50%, -50%);
     margin: 0;
     z-index: var(--z-index-modal);
+    animation: modal-fade-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+dialog[open]::backdrop {
+    animation: backdrop-fade-in 0.35s ease-out forwards;
+}
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -46%) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes backdrop-fade-in {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(12px);
+        background-color: rgba(0, 0, 0, 0.9);
+    }
 }
 
 .modal-header {
