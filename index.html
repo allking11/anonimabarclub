@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ΛNÓNIMO COCINΛ & BΛR | Speakeasy en Barranquilla</title>
+  <meta name="description" content="Descubre Λnónimo Cocina & Bar, un speakeasy exclusivo en Barranquilla, Colombia. Alta gastronomía de autor y coctelería experimental detrás del secreto mejor guardado.">
+  <meta name="keywords" content="speakeasy, barranquilla, bar oculto, cocteleria de autor, cocina de autor, colombia, reservas">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anonimabarclub.com/">
+  <meta property="og:title" content="ΛNÓNIMO COCINΛ & BΛR | Speakeasy en Barranquilla">
+  <meta property="og:description" content="Gastronomía de autor y coctelería experimental en un ambiente íntimo y misterioso en Barranquilla.">
+  <meta property="og:image" content="./local.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="ΛNÓNIMO COCINΛ & BΛR | Speakeasy en Barranquilla">
+  <meta property="twitter:description" content="Gastronomía de autor y coctelería experimental en un ambiente íntimo y misterioso en Barranquilla.">
+  <meta property="twitter:image" content="./local.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="./logo.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              light: '#F3E5C8',
+              DEFAULT: '#D4AF37',
+              dark: '#AA7C11',
+            },
+            dark: {
+              pure: '#070707',
+              bg: '#0F0F0F',
+              card: '#151515',
+              border: '#222222',
+              input: '#1A1A1A',
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom styles override for smooth scrolling, transitions and custom layout -->
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body class="bg-dark-bg text-white font-sans overflow-x-hidden selection:bg-gold selection:text-black">
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black/40 backdrop-blur-md border-b border-white/5" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-gold rounded" aria-label="ΛNÓNIMO COCINΛ & BΛR - Volver al inicio">
+        <img src="./logo.jpg" alt="Logo de ΛNÓNIMO COCINΛ & BΛR" class="w-10 h-10 rounded-full border border-gold/40 group-hover:border-gold transition-colors duration-300 object-cover">
+        <span class="font-serif text-lg tracking-[0.25em] font-semibold text-white group-hover:text-gold transition-colors duration-300">
+          ΛNÓNIMO
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8" role="navigation" aria-label="Navegación principal">
+        <a href="#inicio" class="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors duration-200">INICIO</a>
+        <a href="#experiencia" class="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors duration-200">EXPERIENCIΛ</a>
+        <a href="#historia" class="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors duration-200">HISTORIΛ</a>
+        <a href="#carta" class="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors duration-200">CΛRTΛ</a>
+        <a href="#ubicacion" class="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors duration-200">UBICΛCIÓN</a>
+      </nav>
+
+      <!-- Desktop Call to Action Button -->
+      <div class="hidden md:block">
+        <button onclick="openReservationModal()" class="px-6 py-2.5 bg-transparent border border-gold text-gold hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold rounded-none transition-all duration-300 transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold" aria-label="Abrir modal de reservas">
+          RESERVΛS
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-gray-300 hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold p-2" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileMenu()">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav" class="hidden md:hidden bg-black/95 border-b border-dark-border py-4 px-6 space-y-4 transition-all duration-300">
+      <nav class="flex flex-col space-y-3" role="navigation" aria-label="Navegación móvil">
+        <a href="#inicio" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold py-2 transition-colors duration-200" onclick="toggleMobileMenu()">INICIO</a>
+        <a href="#experiencia" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold py-2 transition-colors duration-200" onclick="toggleMobileMenu()">EXPERIENCIΛ</a>
+        <a href="#historia" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold py-2 transition-colors duration-200" onclick="toggleMobileMenu()">HISTORIΛ</a>
+        <a href="#carta" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold py-2 transition-colors duration-200" onclick="toggleMobileMenu()">CΛRTΛ</a>
+        <a href="#ubicacion" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold py-2 transition-colors duration-200" onclick="toggleMobileMenu()">UBICΛCIÓN</a>
+      </nav>
+      <div class="pt-2">
+        <button onclick="toggleMobileMenu(); openReservationModal()" class="w-full text-center py-3 bg-gold text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300">
+          RESERVΛS
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="inicio" class="relative min-h-dvh flex items-center justify-center overflow-hidden" aria-label="Sección de bienvenida">
+    
+    <!-- Background Video / Fallback Image -->
+    <div class="absolute inset-0 w-full h-full z-0 bg-dark-pure">
+      <!-- Dark overlay to ensure text contrast -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-black/50 to-black/70 z-10"></div>
+      
+      <!-- Video Element -->
+      <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-65" poster="./local.png">
+        <source src="./reel mostrando cocteles.mp4" type="video/mp4">
+        <img src="./local.png" alt="Interior de Λnónimo Cocina & Bar" class="w-full h-full object-cover">
+      </video>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-20 text-center max-w-4xl px-4 sm:px-6 lg:px-8 mt-16">
+      
+      <!-- Subheading / Accent -->
+      <div class="mb-8 flex items-center justify-center gap-2">
+        <span class="h-[1px] w-8 bg-gold/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium">COCINΛ & COCTELERÍΛ OCULTΛ</span>
+        <span class="h-[1px] w-8 bg-gold/50"></span>
+      </div>
+
+      <!-- Main Display Title -->
+      <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.18em] font-extrabold uppercase text-white mb-6 select-none leading-tight">
+        ΛNÓNIMO
+      </h1>
+      
+      <p class="font-serif text-lg sm:text-2xl tracking-[0.4em] text-gold-light/95 uppercase mb-8 font-light">
+        COCINΛ & BΛR
+      </p>
+
+      <!-- Description / Tagline -->
+      <p class="max-w-xl mx-auto text-sm sm:text-base text-gray-300 font-light tracking-wide leading-relaxed mb-10">
+        Detrás del misterio se esconde la excelencia. Descubre nuestro refugio oculto en Barranquilla, diseñado para los amantes de la alta cocina y la coctelería conceptual.
+      </p>
+
+      <!-- Action Call Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openReservationModal()" class="w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-dark text-black text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 transform active:scale-95 shadow-lg shadow-gold/10 hover:shadow-gold/20 focus:outline-none focus:ring-2 focus:ring-gold" aria-label="Reservar mesa ahora">
+          RESERVΛR MESΛ
+        </button>
+        <a href="#experiencia" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 hover:border-gold hover:text-gold text-white text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 text-center focus:outline-none focus:ring-2 focus:ring-white">
+          DESCUBRIR MÁS
+        </a>
+      </div>
+    </div>
+
+    <!-- Elegant Scroll Down Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400">EXPLORΛR</span>
+      <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ================= SIGNATURE EXPERIENCE SECTION ================= -->
+  <section id="experiencia" class="relative py-24 sm:py-32 bg-dark-bg border-y border-dark-border overflow-hidden" aria-label="Nuestra propuesta de valor">
+    <div class="absolute -top-48 -left-48 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium">CΛLIDΛD SIN CONCESIONES</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase font-semibold text-white">
+          EXPERIENCIΛ SINGULΛR
+        </h2>
+        <div class="w-16 h-[2.5px] bg-gold mx-auto my-4"></div>
+        <p class="text-gray-300 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Cada noche en nuestro templo está pensada para ser un viaje sensorial inolvidable.
+        </p>
+      </div>
+
+      <!-- Experience Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Experience item 1 -->
+        <div class="glass-card p-8 flex flex-col gap-4 border border-gold/10 hover:border-gold/30 transition-all duration-300">
+          <div class="text-gold text-3xl font-serif">I.</div>
+          <h3 class="font-serif text-lg tracking-widest text-white uppercase">Cocina para compartir</h3>
+          <p class="text-sm text-gray-400 font-light leading-relaxed">
+            Platos gourmet de autor concebidos desde el rigor culinario, diseñados para maridar e incentivar la conversación.
+          </p>
+        </div>
+
+        <!-- Experience item 2 -->
+        <div class="glass-card p-8 flex flex-col gap-4 border border-gold/10 hover:border-gold/30 transition-all duration-300">
+          <div class="text-gold text-3xl font-serif">II.</div>
+          <h3 class="font-serif text-lg tracking-widest text-white uppercase">Coctelería de autor</h3>
+          <p class="text-sm text-gray-400 font-light leading-relaxed">
+            Coctelería experimental inspirada en alquimia líquida, botánicos exóticos, fermentos propios y destilados de alta gama.
+          </p>
+        </div>
+
+        <!-- Experience item 3 -->
+        <div class="glass-card p-8 flex flex-col gap-4 border border-gold/10 hover:border-gold/30 transition-all duration-300">
+          <div class="text-gold text-3xl font-serif">III.</div>
+          <h3 class="font-serif text-lg tracking-widest text-white uppercase">Ambiente speakeasy</h3>
+          <p class="text-sm text-gray-400 font-light leading-relaxed">
+            La complicidad de un refugio oculto tras una entrada discreta, luces bajas de bronce y una atmósfera íntima y misteriosa.
+          </p>
+        </div>
+
+        <!-- Experience item 4 -->
+        <div class="glass-card p-8 flex flex-col gap-4 border border-gold/10 hover:border-gold/30 transition-all duration-300">
+          <div class="text-gold text-3xl font-serif">IV.</div>
+          <h3 class="font-serif text-lg tracking-widest text-white uppercase">Experiencia premium</h3>
+          <p class="text-sm text-gray-400 font-light leading-relaxed">
+            La conjunción perfecta de servicio premium, confort sofisticado y mística nocturna en el norte de Barranquilla.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRAND STORY SECTION ================= -->
+  <section id="historia" class="relative py-24 sm:py-32 bg-dark-pure overflow-hidden" aria-label="Nuestra historia">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
+        
+        <!-- Text content (Left Column) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="flex items-center gap-2 text-gold">
+            <span class="text-xs uppercase tracking-[0.25em] font-medium">NUESTRΛ HISTORIΛ</span>
+          </div>
+          
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase font-semibold text-white leading-tight">
+            HONRΛR EL LEGΛDO <br><span class="text-gold">DE LΛ COCINΛ</span>
+          </h2>
+          
+          <div class="w-16 h-[2px] bg-gold"></div>
+          
+          <p class="text-gray-300 font-light leading-relaxed text-base sm:text-lg">
+            Anónimo nació a finales de 2016 como un homenaje a los profesionales invisibles de la cocina. Aquellos artistas silenciosos que tras el fuego y el vapor construyen la magia que llega a cada mesa sin buscar el protagonismo.
+          </p>
+          
+          <p class="text-gray-400 font-light leading-relaxed text-sm sm:text-base">
+            Hoy, ese espíritu libre y discreto continúa latiendo con fuerza a través de <strong class="text-white font-medium">Anónimo Cocina & Bar</strong> y <strong class="text-white font-medium">Anónima Bar Club</strong>. Dos marcas hermanas consagradas a brindar a los paladares inquietos de Barranquilla un espacio de misterio, deleite gastronómico y coctelería experimental de clase mundial.
+          </p>
+          
+          <div class="pt-2">
+            <div class="inline-block border border-gold/30 px-4 py-1.5 text-xs tracking-widest text-gold font-serif">
+              DESDE 2016 / ΛNÓNIMO COCINΛ & BΛR
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Content (Right Column) - 3-Image Collage -->
+        <div class="lg:col-span-6 grid grid-cols-12 grid-rows-[auto_auto] gap-3 relative">
+          <!-- Large Main Image (top-left) -->
+          <div class="col-span-8 row-span-2 overflow-hidden border border-dark-border relative group">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+            <img src="./deco local interior (3).jpg" alt="Decoración interior cálida de Anónimo" class="w-full h-[320px] sm:h-[420px] object-cover scale-105 group-hover:scale-100 transition-transform duration-700">
+            <div class="absolute bottom-4 left-4 z-20 bg-black/85 px-4 py-2 border-l border-gold">
+              <p class="text-[9px] tracking-widest uppercase text-gold font-serif">SΛLÓN / PENUMBRΛ Y CΛLIDÉZ</p>
+            </div>
+          </div>
+          
+          <!-- Top-Right Small Image -->
+          <div class="col-span-4 overflow-hidden border border-gold/30 shadow-2xl relative group">
+            <img src="./deco local interior (1).jpg" alt="Detalle decoración interior Anónimo" class="w-full h-[150px] sm:h-[200px] object-cover scale-110 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-3 left-3 bg-black/90 p-2 text-[8px] tracking-widest uppercase text-white font-sans border-t border-gold">
+              DETΛLLES ÍNTIMOS
+            </div>
+          </div>
+
+          <!-- Bottom-Right Small Image -->
+          <div class="col-span-4 overflow-hidden border border-gold/30 shadow-2xl relative group">
+            <img src="./cartel led interior local.jpg" alt="Cartel led de Anónimo" class="w-full h-[150px] sm:h-[200px] object-cover scale-110 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-3 left-3 bg-black/90 p-2 text-[8px] tracking-widest uppercase text-white font-sans border-t border-gold">
+              ΛNÓNIMO MÍSTICΛ
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST & REVIEWS SECTION ================= -->
+  <section class="relative py-20 sm:py-28 bg-dark-bg border-y border-dark-border overflow-hidden" aria-label="Testimonios de clientes">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium">LO QUE DICEN NUESTROS INVITΛDOS</span>
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl tracking-widest uppercase font-semibold text-white">
+          GOOGLE REVIEWS: 4.4/5
+        </h2>
+        <div class="flex items-center justify-center gap-1 text-gold">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 fill-current opacity-40" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="w-16 h-[2.5px] bg-gold mx-auto"></div>
+      </div>
+
+      <!-- Testimonials Carousel -->
+      <div class="relative" id="testimonials-carousel">
+        <div class="overflow-hidden">
+          <div id="testimonials-track" class="flex transition-transform duration-500 ease-out">
+            
+            <!-- Testimonial 1 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="glass-panel p-8 sm:p-10 border border-gold/15 max-w-3xl mx-auto relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent pointer-events-none rounded-lg"></div>
+                <div class="relative z-10">
+                  <svg class="w-8 h-8 text-gold/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                  <p class="text-sm sm:text-base text-gray-300 font-light italic leading-relaxed mb-6">
+                    "Excelente comida y coctelería. El pulpo a la brasa y las mini hamburguesas de chicharrón son excelentes. El ambiente es sobrio, íntimo y la música mantiene un volumen adecuado para conversar. Muy recomendado en Barranquilla."
+                  </p>
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center">
+                      <span class="font-serif text-gold text-sm font-bold">C</span>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-semibold text-white tracking-wide">Camilo Andrés Torres</span>
+                      <div class="flex items-center gap-1 mt-0.5">
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <span class="text-[9px] text-gray-500 ml-1 tracking-wider">GOOGLE REVIEW</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="glass-panel p-8 sm:p-10 border border-gold/15 max-w-3xl mx-auto relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent pointer-events-none rounded-lg"></div>
+                <div class="relative z-10">
+                  <svg class="w-8 h-8 text-gold/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                  <p class="text-sm sm:text-base text-gray-300 font-light italic leading-relaxed mb-6">
+                    "Me gustó mucho el lugar, la decoración y todo el concepto misterioso que manejan. Pedimos una burrata y un par de cocteles de autor que estuvieron muy bien logrados. El servicio es sumamente atento y se preocupan por la experiencia."
+                  </p>
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center">
+                      <span class="font-serif text-gold text-sm font-bold">V</span>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-semibold text-white tracking-wide">Valentina Orozco</span>
+                      <div class="flex items-center gap-1 mt-0.5">
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <span class="text-[9px] text-gray-500 ml-1 tracking-wider">GOOGLE REVIEW</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="glass-panel p-8 sm:p-10 border border-gold/15 max-w-3xl mx-auto relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent pointer-events-none rounded-lg"></div>
+                <div class="relative z-10">
+                  <svg class="w-8 h-8 text-gold/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                  <p class="text-sm sm:text-base text-gray-300 font-light italic leading-relaxed mb-6">
+                    "La comida es muy rica y la idea de platos para compartir funciona bien, pero los fines de semana el lugar se llena bastante y las respuestas de reservas por WhatsApp pueden tardar un poco. Tuvimos que esperar unos minutos por nuestra mesa a pesar de tener reserva previa. Fuera de eso, los tragos son muy buenos."
+                  </p>
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center">
+                      <span class="font-serif text-gold text-sm font-bold">R</span>
+                    </div>
+                    <div>
+                      <span class="block text-xs font-semibold text-white tracking-wide">Ricardo J. Maestre</span>
+                      <div class="flex items-center gap-1 mt-0.5">
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-3 h-3 fill-current text-gold/40" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <span class="text-[9px] text-gray-500 ml-1 tracking-wider">GOOGLE REVIEW</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Carousel Navigation -->
+        <div class="flex items-center justify-center gap-6 mt-8">
+          <button onclick="prevTestimonial()" class="w-10 h-10 border border-gold/30 hover:border-gold hover:bg-gold/10 flex items-center justify-center transition-all duration-300" aria-label="Testimonio anterior">
+            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="flex gap-2" id="testimonial-dots">
+            <button onclick="goToTestimonial(0)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300" aria-label="Ir a testimonio 1"></button>
+            <button onclick="goToTestimonial(1)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-gray-600 hover:bg-gray-400 transition-all duration-300" aria-label="Ir a testimonio 2"></button>
+            <button onclick="goToTestimonial(2)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-gray-600 hover:bg-gray-400 transition-all duration-300" aria-label="Ir a testimonio 3"></button>
+          </div>
+          <button onclick="nextTestimonial()" class="w-10 h-10 border border-gold/30 hover:border-gold hover:bg-gold/10 flex items-center justify-center transition-all duration-300" aria-label="Testimonio siguiente">
+            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MENU CATEGORIES GRID SECTION ================= -->
+  <section id="carta" class="relative py-24 sm:py-32 bg-dark-bg border-b border-dark-border" aria-label="Nuestras categorías de menú">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium">SΛBORES DE TEMPLO</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase font-semibold text-white">
+          CATEGORÍΛS DE LΛ CΛRTΛ
+        </h2>
+        <div class="w-16 h-[2.5px] bg-gold mx-auto my-4"></div>
+        <p class="text-gray-300 font-light text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+          Haz clic en cualquier categoría para abrir la carta digital y ver los detalles, precios y maridajes de nuestra barra y cocina.
+        </p>
+      </div>
+
+      <!-- Categories Grid (15 items) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        
+        <!-- Cat 1 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">01 / BEBIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Cócteles de autor</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Alquimia conceptual líquida</p>
+        </div>
+
+        <!-- Cat 2 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">02 / BEBIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Cócteles tradicionales</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Clásicos inalterables</p>
+        </div>
+
+        <!-- Cat 3 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">03 / BEBIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Cócteles energizados</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Para elevar la noche</p>
+        </div>
+
+        <!-- Cat 4 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">04 / DESTILΛDO</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Whisky</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Single malts & Blends</p>
+        </div>
+
+        <!-- Cat 5 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">05 / DESTILΛDO</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Vodka</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Pureza y carácter</p>
+        </div>
+
+        <!-- Cat 6 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">06 / DESTILΛDO</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Tequila</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">El alma de Jalisco</p>
+        </div>
+
+        <!-- Cat 7 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">07 / DESTILΛDO</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Ron</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Añejados del Caribe</p>
+        </div>
+
+        <!-- Cat 8 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">08 / TRΛDICIÓN</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Aguardiente</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">El espíritu de la casa</p>
+        </div>
+
+        <!-- Cat 9 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">09 / CERVEZΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Cervezas importadas</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Marcas seleccionadas</p>
+        </div>
+
+        <!-- Cat 10 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">10 / CERVEZΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Cervezas nacionales</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Sabores y frescura local</p>
+        </div>
+
+        <!-- Cat 11 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">11 / SIN ΛLCOHOL</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Bebidas sin alcohol</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Mocktails elaborados</p>
+        </div>
+
+        <!-- Cat 12 -->
+        <div onclick="openMenuLightbox(2)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">12 / SÍN ΛLCOHOL</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Sodas y limonadas</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Efervescencia frutal</p>
+        </div>
+
+        <!-- Cat 13 -->
+        <div onclick="openMenuLightbox(1)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">13 / COMIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Entradas</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Entrantes para compartir</p>
+        </div>
+
+        <!-- Cat 14 -->
+        <div onclick="openMenuLightbox(1)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">14 / COMIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Burger especiales</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Con carne madurada de autor</p>
+        </div>
+
+        <!-- Cat 15 -->
+        <div onclick="openMenuLightbox(1)" class="glass-card p-5 flex flex-col justify-between cursor-pointer border border-gold/10 hover:border-gold/40 transition-all duration-300 group">
+          <span class="text-[11px] font-mono text-gold/40">15 / COMIDΛ</span>
+          <h3 class="font-serif text-sm tracking-widest text-white group-hover:text-gold transition-colors duration-300 mt-2 uppercase">Burger clásicas</h3>
+          <p class="text-xs text-gray-500 italic mt-1 font-light">Sabor tradicional impecable</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GASTRO & COCKTAILS (PREVIEW TABS) ================= -->
+  <section class="relative py-24 sm:py-32 bg-dark-pure overflow-hidden" aria-label="Propuesta visual de la carta">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium font-sans">VISUΛLIZΛR NUESTRΛS CΛRTΛS</span>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-widest uppercase font-semibold text-white">
+          CΛRTΛS DE PLΛTOS Y BEBIDΛS
+        </h2>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex justify-center mb-10 border-b border-dark-border max-w-md mx-auto">
+        <button id="tab-plates-btn" onclick="switchMenuTab('plates')" class="flex-1 py-4 text-center text-xs uppercase tracking-[0.25em] font-semibold text-gold border-b-2 border-gold focus:outline-none transition-all duration-300" aria-selected="true" role="tab">
+          CΛRTΛ DE PLΛTOS
+        </button>
+        <button id="tab-drinks-btn" onclick="switchMenuTab('drinks')" class="flex-1 py-4 text-center text-xs uppercase tracking-[0.25em] font-semibold text-gray-400 border-b-2 border-transparent hover:text-white focus:outline-none transition-all duration-300" aria-selected="false" role="tab">
+          CΛRTΛ DE TRΛGOS
+        </button>
+      </div>
+
+      <!-- Menu Cards Containers -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+        
+        <!-- Descriptive Column -->
+        <div class="md:col-span-5 space-y-6">
+          <div id="menu-description-plates" class="space-y-4 transition-opacity duration-300">
+            <h3 class="font-serif text-2xl tracking-widest text-gold uppercase">COCINΛ DE VΛNGUΛRDIΛ</h3>
+            <p class="text-gray-300 text-sm leading-relaxed font-light">
+              Platos elaborados con ingredientes de estación rigurosamente seleccionados. Entradas elegantes para compartir y burgers gourmet de autor con carne madurada.
+            </p>
+            <div class="pt-4 flex gap-4">
+              <button onclick="openMenuLightbox(1)" class="px-5 py-3 bg-gold text-black hover:bg-gold-dark text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                VER CΛRTΛ COMPLETΛ
+              </button>
+              <a href="./carta1 (1).png" download class="px-5 py-3 border border-white/20 hover:border-gold hover:text-gold text-[10px] font-bold uppercase tracking-widest text-center transition-colors duration-300">
+                DESCΛRGΛR IMΛGEN
+              </a>
+            </div>
+          </div>
+
+          <div id="menu-description-drinks" class="hidden space-y-4 transition-opacity duration-300">
+            <h3 class="font-serif text-2xl tracking-widest text-gold uppercase">ELIXIRES DE LΛ BΛRRΛ</h3>
+            <p class="text-gray-300 text-sm leading-relaxed font-light">
+              Nuestra barra de coctelería experimental desafía los límites tradicionales. Mezclas clarificadas, infusiones botánicas, destilados premium y licores artesanales.
+            </p>
+            <div class="pt-4 flex gap-4">
+              <button onclick="openMenuLightbox(2)" class="px-5 py-3 bg-gold text-black hover:bg-gold-dark text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                VER CΛRTΛ COMPLETΛ
+              </button>
+              <a href="./carta1 (2).png" download class="px-5 py-3 border border-white/20 hover:border-gold hover:text-gold text-[10px] font-bold uppercase tracking-widest text-center transition-colors duration-300">
+                DESCΛRGΛR IMΛGEN
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Image Visualizer -->
+        <div class="md:col-span-7 flex justify-center">
+          <div id="menu-image-plates" class="relative group cursor-pointer border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10"></div>
+            <img src="./carta1 (1).png" alt="Carta de Platos de Anónimo Cocina" class="w-full h-auto object-cover max-h-[500px] transition-transform duration-500 group-hover:scale-[1.03]" onclick="openMenuLightbox(1)">
+          </div>
+
+          <div id="menu-image-drinks" class="hidden relative group cursor-pointer border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10"></div>
+            <img src="./carta1 (2).png" alt="Carta de Cócteles de Anónimo Bar" class="w-full h-auto object-cover max-h-[500px] transition-transform duration-500 group-hover:scale-[1.03]" onclick="openMenuLightbox(2)">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LOCATION & HOURS SECTION ================= -->
+  <section id="ubicacion" class="relative py-24 sm:py-32 bg-dark-bg border-y border-dark-border overflow-hidden" aria-label="Información de ubicación y horarios">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Text & Info Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-2 text-gold">
+            <span class="text-sm uppercase tracking-[0.25em] font-medium">EL TEMPLO SECRETO</span>
+          </div>
+          
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase font-semibold text-white leading-tight">
+            UBICΛCIÓN Y HORΛRIOS
+          </h2>
+          
+          <div class="w-16 h-[2px] bg-gold"></div>
+          
+          <div class="space-y-4 font-light text-gray-300">
+            <div>
+              <h3 class="text-xs font-serif uppercase tracking-widest text-gold mb-1">DIRECCIÓN</h3>
+              <p class="text-base">Calle 93 #43-41, Barrio Norte Centro Histórico,<br>Barranquilla, Atlántico, Colombia</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xs font-serif uppercase tracking-widest text-gold mb-1">HORΛRIOS DE SERVICIO</h3>
+              <ul class="text-sm space-y-2 mt-1">
+                <li><strong class="text-white">Martes a jueves:</strong> 6:00 PM - 12:00 AM (18:00 hs. a 00:00 hs.)</li>
+                <li><strong class="text-white">Viernes y sábados:</strong> 6:00 PM - 3:00 AM (18:00 hs. a 03:00 hs.)</li>
+                <li><strong class="text-gold">Domingo y lunes:</strong> Cerrado</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-2 flex gap-4">
+            <a href="https://maps.google.com/?q=Calle+93+%2343-41+Barranquilla+Colombia" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-black text-sm font-bold uppercase tracking-widest transition-colors duration-300">
+              VER EN GOOGLE MΛPS
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Map Placeholder / Image Column -->
+        <div class="relative overflow-hidden border border-dark-border h-[300px] sm:h-[400px]">
+          <div class="absolute inset-0 bg-black/35 z-10 pointer-events-none"></div>
+          <img src="./local.png" alt="Entrada de Anónimo Cocina & Bar" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent z-20 flex flex-col justify-end p-6">
+            <p class="text-[9px] uppercase tracking-widest text-gold font-serif">BARRIO NORTE CENTRO HISTÓRICO</p>
+            <h3 class="text-sm tracking-widest uppercase text-white font-serif mt-1">BΛRRΛNQUILLΛ</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CONVERSION SECTION ================= -->
+  <section class="relative py-24 bg-dark-pure overflow-hidden text-center" aria-label="Llamado a la acción final">
+    <!-- Spotlight glowing bg -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10 space-y-8">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium font-sans">EL MISTERIO ΛGUΛRDΛ</span>
+      <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl tracking-widest uppercase font-semibold text-white leading-tight">
+        TU PRÓXIMΛ NOCHE <br><span class="text-gold">EMPIEZΛ AQUÍ</span>
+      </h2>
+      <div class="w-16 h-[2.5px] bg-gold mx-auto"></div>
+      <p class="text-gray-300 font-light text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-sans">
+        Reserva tu mesa en línea de manera sencilla y segura. Al confirmar tu solicitud por WhatsApp, te enviaremos la ubicación exacta y las instrucciones de acceso para el salón speakeasy.
+      </p>
+
+      <div>
+        <button onclick="openReservationModal()" class="px-8 py-4 bg-gold hover:bg-gold-dark text-black text-xs uppercase tracking-[0.25em] font-bold transition-all duration-300 transform active:scale-95 shadow-lg shadow-gold/20 hover:shadow-gold/35 focus:outline-none focus:ring-2 focus:ring-gold" aria-label="Abrir modal para reservar mesa">
+          RESERVΛR MESA AHORA
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ATMOSPHERE GALLERY ================= -->
+  <section id="gallery" class="relative py-24 bg-dark-bg border-t border-dark-border" aria-label="Galería de atmósfera y coctelería">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium font-sans">IMÁGENES DEL MISTERIO</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase font-semibold text-white">
+          EXPERIENCIΛ ΛNÓNIMΛ
+        </h2>
+        <div class="w-16 h-[2.5px] bg-gold mx-auto my-4"></div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Item 1 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./clientes disfrutando cocteles (1).jpg" alt="Clientes disfrutando de cócteles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">ELIXIRES & SOCIEDΛD</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">ΛRTEMISIΛ & BRONCE</h3>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./deco local interior (1).jpg" alt="Detalle del interiorismo de Anónimo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">EL LUGΛR</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">TEXTURΛS Y PENUMBRΛ</h3>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./clientes disfrutando cocteles (2).jpg" alt="Elixir en copa y destilado conceptual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">CΛRTΛ DE COCTELERÍΛ</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">ELIXIR DE LΛ CΛSΛ</h3>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./deco local interior (2).jpg" alt="Rincones exclusivos y reservados" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">EL LUGΛR</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">RINCÓN RESERVΛDO</h3>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./clientes disfrutando cocteles (3).jpg" alt="Cristalería premium y tragos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">LΛS MEZCLΛS</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">ΛLQUIMIΛ BOTÁNICΛ</h3>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="relative overflow-hidden group border border-dark-border bg-dark-card aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+          <img src="./deco local interior.jpg" alt="Decoración original del local" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-5 left-5 z-20">
+            <span class="text-[9px] uppercase tracking-widest text-gold bg-black/60 px-2.5 py-1 border-l border-gold font-serif">EL LUGΛR</span>
+            <h3 class="text-sm font-semibold tracking-wider text-white mt-2 uppercase font-serif">DETΛLLES OCULTOS</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark-pure border-t border-dark-border py-16 text-gray-400" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="./logo.jpg" alt="Logo" class="w-9 h-9 rounded-full border border-gold/30 object-cover">
+            <span class="font-serif tracking-widest text-white font-semibold">ΛNÓNIMO</span>
+          </div>
+          <p class="text-sm text-gray-500 font-light leading-relaxed">
+            Una experiencia misteriosa, sofisticada y exclusiva. Alta cocina de autor y coctelería experimental en Barranquilla, Colombia.
+          </p>
+        </div>
+
+        <!-- Col 2: Info / Hours -->
+        <div class="space-y-4">
+          <h4 class="font-serif text-white tracking-widest text-xs uppercase font-medium">HORΛRIOS</h4>
+          <ul class="text-xs space-y-2 font-light text-gray-500 font-sans">
+            <li>Martes a jueves: 6pm - 12am</li>
+            <li>Viernes y sábados: 6pm - 3am</li>
+            <li class="text-gold font-serif">Domingo y lunes: Cerrado</li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Secrete Address -->
+        <div class="space-y-4">
+          <h4 class="font-serif text-white tracking-widest text-xs uppercase font-medium">DIRECCIÓN SECRETΛ</h4>
+          <p class="text-xs font-light leading-relaxed text-gray-500 font-sans">
+            Calle 93 #43-41, Barrio Norte Centro Histórico,<br>
+            Barranquilla, Atlántico, Colombia. <br>
+            <span class="text-gray-400 font-normal italic font-serif">La ubicación exacta es provista tras la confirmación de la reserva.</span>
+          </p>
+        </div>
+
+        <!-- Col 4: Links & Social -->
+        <div class="space-y-4">
+          <h4 class="font-serif text-white tracking-widest text-xs uppercase font-medium">SÍGUENOS</h4>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/anonimabarclub/" target="_blank" rel="noopener noreferrer" class="p-2 border border-white/10 hover:border-gold hover:text-gold transition-colors duration-300" aria-label="Seguir en Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://wa.me/573115476363" target="_blank" rel="noopener noreferrer" class="p-2 border border-white/10 hover:border-gold hover:text-gold transition-colors duration-300" aria-label="Contactar por WhatsApp">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.498 4.908 1.499 5.485.002 9.95-4.462 9.954-9.948.002-2.658-1.03-5.157-2.9-7.03C16.74 1.798 14.24 .764 11.587.765c-5.486 0-9.95 4.46-9.954 9.948-.001 1.83.493 3.618 1.433 5.176L1.87 21.096l4.777-1.942zm11.238-6.85c-.3-.15-1.774-.875-2.049-.976-.276-.1-.476-.15-.676.15-.2.3-.775.976-.95 1.176-.175.2-.35.225-.65.075-.3-.15-1.265-.467-2.41-1.485-.89-.79-1.49-1.77-1.665-2.07-.175-.3-.02-.46.13-.61.135-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.444 8.21 8.85 6.75 8.6 6.15c-.244-.59-.49-.51-.676-.52-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8.375-.276.3-1.05 1.025-1.05 2.5s1.075 2.9 1.225 3.1c.15.2 2.11 3.224 5.116 4.525.715.31 1.273.496 1.71.635.717.228 1.37.196 1.885.12.575-.085 1.774-.726 2.024-1.427.25-.7.25-1.3.175-1.425-.076-.125-.276-.2-.576-.35z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Divider & Copy -->
+      <div class="border-t border-dark-border/60 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600 gap-4 font-sans">
+        <p>© 2026 ΛNÓNIMO COCINΛ & BΛR. Todos los derechos reservados.</p>
+        <p class="font-serif tracking-widest text-[10px] text-gold/60">CONCIBIÓ ESTE TEMPLO / ΛNÓNIMO</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= RESERVATION MODAL (DIALOG) ================= -->
+  <dialog id="reservation-modal" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-dark-card border border-gold/20 text-white p-0 max-w-lg w-[92%] md:w-full rounded-lg shadow-2xl shadow-gold/5 focus:outline-none overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    
+    <!-- Modal Header Banner -->
+    <div class="relative bg-dark-pure border-b border-dark-border px-6 py-5 flex items-center justify-between">
+      <div>
+        <h3 id="modal-title" class="font-serif text-xl tracking-widest text-gold uppercase">RESERVΛR MESΛ</h3>
+        <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-1">ΛNÓNIMO COCINΛ & BΛR</p>
+      </div>
+      <!-- Close Button -->
+      <button onclick="closeReservationModal()" class="text-gray-400 hover:text-white hover:rotate-90 transition-all duration-300 p-2 focus:outline-none focus:ring-1 focus:ring-gold" aria-label="Cerrar modal de reservas">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Wizard Steps Indicator -->
+    <div class="bg-dark-pure/60 px-6 py-4 border-b border-dark-border/40 flex items-center justify-between text-xs tracking-widest text-gray-500 font-serif">
+      <div id="step-indicator-1" class="text-gold font-bold transition-all duration-200">1. FECHΛ</div>
+      <div class="text-gray-700">➔</div>
+      <div id="step-indicator-2" class="transition-all duration-200">2. HORΛ</div>
+      <div class="text-gray-700">➔</div>
+      <div id="step-indicator-3" class="transition-all duration-200">3. INVITΛDOS</div>
+      <div class="text-gray-700">➔</div>
+      <div id="step-indicator-4" class="transition-all duration-200">4. CONTΛCTO</div>
+    </div>
+
+    <!-- Reservation Form Wrapper -->
+    <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="p-6 space-y-6">
+      
+      <!-- hidden inputs to store selection state -->
+      <input type="date" id="res-date-hidden" name="date" class="hidden" required>
+      <input type="hidden" id="res-time-hidden" name="time" required>
+      <input type="number" id="res-guests-hidden" name="guests" min="1" max="8" required>
+
+      <!-- ================= STEP 1: SELECT DATE ================= -->
+      <div id="res-step-1" class="wizard-step space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs uppercase tracking-widest text-gold font-serif">PΛSO 1: SELECCIONΛR FECHΛ</label>
+          <p class="text-xs text-gray-400 font-light font-sans">Disponibilidad en tiempo real para los próximos 7 días (Cerrados Domingo y Lunes).</p>
+        </div>
+
+        <!-- Dynamic Date Cards Grid -->
+        <div id="date-cards-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+          <!-- Filled dynamically by JS -->
+        </div>
+
+        <div class="pt-4 flex justify-end">
+          <button type="button" onclick="nextStep(2)" id="btn-next-to-step-2" class="px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none" disabled>
+            SIGUIENTE
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 2: SELECT TIME SLOT ================= -->
+      <div id="res-step-2" class="wizard-step hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs uppercase tracking-widest text-gold font-serif">PΛSO 2: SELECCIONΛR HORΛ</label>
+          <p class="text-xs text-gray-400 font-light font-sans">Turnos de servicio disponibles según el día de la semana.</p>
+        </div>
+
+        <!-- Dinner Hour Slots Grid -->
+        <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+          <!-- Dynamically populated based on chosen date -->
+        </div>
+
+        <div class="pt-4 flex justify-between">
+          <button type="button" onclick="prevStep(1)" class="px-6 py-3 border border-white/10 hover:border-white text-xs uppercase tracking-widest text-gray-300 transition-colors duration-300">
+            VOLVER
+          </button>
+          <button type="button" onclick="nextStep(3)" id="btn-next-to-step-3" class="px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none" disabled>
+            SIGUIENTE
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 3: GUEST COUNT ================= -->
+      <div id="res-step-3" class="wizard-step hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs uppercase tracking-widest text-gold font-serif">PΛSO 3: CΛNTIDΛD DE INVITΛDOS</label>
+          <p class="text-xs text-gray-400 font-light font-sans">Reservas online disponibles para grupos de hasta 8 personas.</p>
+        </div>
+
+        <!-- Guests Buttons Grid -->
+        <div id="guests-container" class="grid grid-cols-4 gap-2.5">
+          <button type="button" onclick="selectGuests(1, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">1</button>
+          <button type="button" onclick="selectGuests(2, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">2</button>
+          <button type="button" onclick="selectGuests(3, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">3</button>
+          <button type="button" onclick="selectGuests(4, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">4</button>
+          <button type="button" onclick="selectGuests(5, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">5</button>
+          <button type="button" onclick="selectGuests(6, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">6</button>
+          <button type="button" onclick="selectGuests(7, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">7</button>
+          <button type="button" onclick="selectGuests(8, this)" class="guests-card py-3.5 px-2 border border-dark-border bg-dark-pure hover:border-gold hover:text-gold transition-all duration-300 text-center font-serif font-semibold">8</button>
+        </div>
+
+        <div class="pt-4 flex justify-between font-sans">
+          <button type="button" onclick="prevStep(2)" class="px-6 py-3 border border-white/10 hover:border-white text-xs uppercase tracking-widest text-gray-300 transition-colors duration-300">
+            VOLVER
+          </button>
+          <button type="button" onclick="nextStep(4)" id="btn-next-to-step-4" class="px-6 py-3 bg-white/10 hover:bg-gold hover:text-black text-xs uppercase tracking-widest font-semibold transition-all duration-300 disabled:opacity-45 disabled:pointer-events-none" disabled>
+            SIGUIENTE
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 4: CONTACT DETAILS ================= -->
+      <div id="res-step-4" class="wizard-step hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs uppercase tracking-widest text-gold font-serif">PΛSO 4: DΛTOS DE CONTΛCTO</label>
+          <p class="text-xs text-gray-400 font-light font-sans">Completa tus datos para confirmar tu mesa en la dirección privada de Barranquilla.</p>
+        </div>
+
+        <!-- Form fields -->
+        <div class="space-y-3.5">
+          <div class="form-group flex flex-col gap-1">
+            <label for="contact-name" class="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">NOMBRE COMPLETO *</label>
+            <input type="text" id="contact-name" name="name" class="w-full bg-dark-input border border-dark-border px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition-colors duration-300" placeholder="Ej. Juan Pérez" required>
+          </div>
+          
+          <div class="form-group flex flex-col gap-1">
+            <label for="contact-phone" class="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">TELÉFONO / WHΛTSΛPP *</label>
+            <input type="tel" id="contact-phone" name="phone" class="w-full bg-dark-input border border-dark-border px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition-colors duration-300" placeholder="Ej. +57 311 5476363" required>
+          </div>
+
+          <div class="form-group flex flex-col gap-1">
+            <label for="contact-requests" class="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">REQUERIMIENTOS ESPECIΛLES</label>
+            <textarea id="contact-requests" name="requests" rows="3" class="w-full bg-dark-input border border-dark-border px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition-colors duration-300" placeholder="Ej. Alergias, intolerancias alimentarias o celebraciones..."></textarea>
+          </div>
+        </div>
+
+        <div class="pt-4 flex justify-between items-center gap-4 font-sans">
+          <button type="button" onclick="prevStep(3)" class="px-6 py-3 border border-white/10 hover:border-white text-xs uppercase tracking-widest text-gray-300 transition-colors duration-300">
+            VOLVER
+          </button>
+          
+          <button type="submit" class="flex-1 py-4 bg-gold hover:bg-gold-dark text-black text-xs uppercase tracking-widest font-bold transition-all duration-300 text-center flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.498 4.908 1.499 5.485.002 9.95-4.462 9.954-9.948.002-2.658-1.03-5.157-2.9-7.03C16.74 1.798 14.24 .764 11.587.765c-5.486 0-9.95 4.46-9.954 9.948-.001 1.83.493 3.618 1.433 5.176L1.87 21.096l4.777-1.942zm11.238-6.85c-.3-.15-1.774-.875-2.049-.976-.276-.1-.476-.15-.676.15-.2.3-.775.976-.95 1.176-.175.2-.35.225-.65.075-.3-.15-1.265-.467-2.41-1.485-.89-.79-1.49-1.77-1.665-2.07-.175-.3-.02-.46.13-.61.135-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.444 8.21 8.85 6.75 8.6 6.15c-.244-.59-.49-.51-.676-.52-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8.375-.276.3-1.05 1.025-1.05 2.5s1.075 2.9 1.225 3.1c.15.2 2.11 3.224 5.116 4.525.715.31 1.273.496 1.71.635.717.228 1.37.196 1.885.12.575-.085 1.774-.726 2.024-1.427.25-.7.25-1.3.175-1.425-.076-.125-.276-.2-.576-.35z"/></svg>
+            CONFIRMΛR POR WHΛTSΛPP
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </dialog>
+
+  <!-- ================= MENU LIGHTBOX (DIALOG) ================= -->
+  <dialog id="menu-lightbox" class="backdrop:bg-black/95 bg-transparent border-0 text-white p-0 max-w-4xl w-[95%] focus:outline-none overflow-hidden my-auto" role="dialog" aria-modal="true" aria-label="Visualizador de Carta">
+    <div class="relative flex flex-col items-center justify-center p-4">
+      
+      <!-- Close Box Button -->
+      <button onclick="closeMenuLightbox()" class="absolute top-4 right-4 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Cerrar visualizador">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Left Navigation Button -->
+      <button id="lightbox-prev-btn" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Página anterior">
+        <svg class="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <!-- Right Navigation Button -->
+      <button id="lightbox-next-btn" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Página siguiente">
+        <svg class="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Lightbox Image Content -->
+      <div class="max-h-[85vh] overflow-y-auto">
+        <img id="lightbox-image" src="./carta1 (1).png" alt="Carta ampliada" class="max-w-full h-auto object-contain mx-auto border border-dark-border cursor-zoom-in">
+      </div>
+
+      <!-- Footer Bar -->
+      <div class="w-full mt-4 flex items-center justify-between px-2 text-xs text-gray-400">
+        <span id="lightbox-title" class="font-serif tracking-widest text-gold uppercase">CΛRTΛ DE PLΛTOS</span>
+        <a id="lightbox-download" href="./carta1 (1).png" download class="hover:text-gold underline transition-colors duration-200 uppercase tracking-widest">DESCΛRGΛR IMΛGEN</a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ================= INTERACTIVE LOGIC ================= -->
+  <!-- All interactive wizard, calendar, tabs, lightbox, validation and WhatsApp redirection logic is contained in ./index.js -->
+  <script src="./index.js" defer></script>
+</body>
+</html>

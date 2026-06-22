@@ -1,0 +1,11 @@
+{
+  "name": "anonimabarclub",
+  "version": "1.0.0",
+  "description": "Premium landing page dev environment",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
