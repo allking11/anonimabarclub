@@ -593,15 +593,7 @@
             <p class="text-gray-300 text-sm leading-relaxed font-light">
               Platos elaborados con ingredientes de estación rigurosamente seleccionados. Entradas elegantes para compartir y burgers gourmet de autor con carne madurada.
             </p>
-            <div class="pt-4 flex gap-4">
-              <button onclick="openMenuLightbox(1)" class="px-5 py-3 bg-gold text-black hover:bg-gold-dark text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                VER CΛRTΛ COMPLETΛ
-              </button>
-              <a href="./carta1 (1).webp" download class="px-5 py-3 border border-white/20 hover:border-gold hover:text-gold text-[10px] font-bold uppercase tracking-widest text-center transition-colors duration-300">
-                DESCΛRGΛR IMΛGEN
-              </a>
-            </div>
+            
           </div>
 
           <div id="menu-description-drinks" class="hidden space-y-4 transition-opacity duration-300">
@@ -609,28 +601,24 @@
             <p class="text-gray-300 text-sm leading-relaxed font-light">
               Nuestra barra de coctelería experimental desafía los límites tradicionales. Mezclas clarificadas, infusiones botánicas, destilados premium y licores artesanales.
             </p>
-            <div class="pt-4 flex gap-4">
-              <button onclick="openMenuLightbox(2)" class="px-5 py-3 bg-gold text-black hover:bg-gold-dark text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                VER CΛRTΛ COMPLETΛ
-              </button>
-              <a href="./carta1 (2).webp" download class="px-5 py-3 border border-white/20 hover:border-gold hover:text-gold text-[10px] font-bold uppercase tracking-widest text-center transition-colors duration-300">
-                DESCΛRGΛR IMΛGEN
-              </a>
-            </div>
+            
           </div>
         </div>
 
         <!-- Interactive Image Visualizer -->
         <div class="md:col-span-7 flex justify-center reveal">
-          <div id="menu-image-plates" class="relative group cursor-pointer border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
-            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10"></div>
-            <img src="./carta1 (1).webp" alt="Carta de Platos de Anónimo Cocina" class="w-full h-auto object-cover max-h-[500px] transition-transform duration-500 group-hover:scale-[1.03]" onclick="openMenuLightbox(1)" loading="lazy" width="384" height="468">
+          <div id="menu-image-plates" class="relative group border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10 pointer-events-none"></div>
+            <img src="./menu_platos_1.webp" alt="Plato gourmet de Anónimo Cocina" class="menu-slide-plate w-full h-auto object-cover max-h-[500px] opacity-100 transition-opacity duration-700" loading="lazy" width="384" height="468">
+            <img src="./menu_platos_2.webp" alt="Plato premium de Anónimo Cocina" class="menu-slide-plate absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" width="384" height="468">
+            <img src="./menu_platos_3.webp" alt="Gastronomía de autor de Anónimo Cocina" class="menu-slide-plate absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" width="384" height="468">
           </div>
 
-          <div id="menu-image-drinks" class="hidden relative group cursor-pointer border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
-            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10"></div>
-            <img src="./carta1 (2).webp" alt="Carta de Cócteles de Anónimo Bar" class="w-full h-auto object-cover max-h-[500px] transition-transform duration-500 group-hover:scale-[1.03]" onclick="openMenuLightbox(2)" loading="lazy" width="384" height="468">
+          <div id="menu-image-drinks" class="hidden relative group border border-dark-border hover:border-gold/50 transition-colors duration-300 max-w-sm w-full bg-dark-card overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-300 z-10 pointer-events-none"></div>
+            <img src="./menu_tragos_1.webp" alt="Cóctel de autor de Anónimo Bar" class="menu-slide-drink w-full h-auto object-cover max-h-[500px] opacity-100 transition-opacity duration-700" loading="lazy" width="384" height="468">
+            <img src="./menu_tragos_2.webp" alt="Coctelería experimental de Anónimo Bar" class="menu-slide-drink absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" width="384" height="468">
+            <img src="./menu_tragos_3.webp" alt="Trago premium de Anónimo Bar" class="menu-slide-drink absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" width="384" height="468">
           </div>
         </div>
 
@@ -1088,43 +1076,7 @@
     </form>
   </dialog>
 
-  <!-- ================= MENU LIGHTBOX (DIALOG) ================= -->
-  <dialog id="menu-lightbox" class="backdrop:bg-black/95 bg-transparent border-0 text-white p-0 max-w-4xl w-[95%] focus:outline-none overflow-hidden my-auto" role="dialog" aria-modal="true" aria-label="Visualizador de Carta">
-    <div class="relative flex flex-col items-center justify-center p-4">
-      
-      <!-- Close Box Button -->
-      <button onclick="closeMenuLightbox()" class="absolute top-4 right-4 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Cerrar visualizador">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-      <!-- Left Navigation Button -->
-      <button id="lightbox-prev-btn" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Página anterior">
-        <svg class="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-      </button>
-
-      <!-- Right Navigation Button -->
-      <button id="lightbox-next-btn" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-gold bg-black/60 p-2.5 rounded-full border border-white/20 transition-all duration-300 focus:outline-none" aria-label="Página siguiente">
-        <svg class="w-5 sm:w-6 h-5 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
-
-      <!-- Lightbox Image Content -->
-      <div class="max-h-[85vh] overflow-y-auto">
-        <img id="lightbox-image" src="./carta1 (1).webp" alt="Carta ampliada" class="max-w-full h-auto object-contain mx-auto border border-dark-border cursor-zoom-in" loading="lazy">
-      </div>
-
-      <!-- Footer Bar -->
-      <div class="w-full mt-4 flex items-center justify-between px-2 text-xs text-gray-400">
-        <span id="lightbox-title" class="font-serif tracking-widest text-gold uppercase">CΛRTΛ DE PLΛTOS</span>
-        <a id="lightbox-download" href="./carta1 (1).webp" download class="hover:text-gold underline transition-colors duration-200 uppercase tracking-widest">DESCΛRGΛR IMΛGEN</a>
-      </div>
-    </div>
-  </dialog>
+  <!-- Menu lightbox removed -->
 
   <!-- ================= INTERACTIVE LOGIC ================= -->
   <!-- All interactive wizard, calendar, tabs, lightbox, validation and WhatsApp redirection logic is contained in ./index.js -->

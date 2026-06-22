@@ -28,10 +28,7 @@
     selectedDate: '',
     selectedTime: '',
     selectedGuestsCount: 0,
-    selectedDayOfWeek: -1, // 0-6 index
-    menuUrls: ['./carta1 (1).webp', './carta1 (2).webp'],
-    currentMenuIndex: 0,
-    isMenuZoomed: false
+    selectedDayOfWeek: -1 // 0-6 index
   };
 
   // ==========================================
@@ -112,72 +109,7 @@
     }
   }
 
-  // ==========================================
-  // Menu Lightbox Dialog
-  // ==========================================
-
-  function openMenuLightbox(index) {
-    const lightbox = document.getElementById('menu-lightbox');
-    const lightboxImg = document.getElementById('lightbox-image');
-
-    if (!lightbox || !lightboxImg) return;
-
-    state.currentMenuIndex = index === 1 ? 0 : 1;
-    state.isMenuZoomed = false;
-
-    // Reset zoom classes
-    lightboxImg.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-    lightboxImg.classList.add('cursor-zoom-in');
-
-    updateLightboxContent();
-
-    lightbox.showModal();
-    document.body.classList.add('overflow-hidden');
-  }
-
-  function updateLightboxContent() {
-    const lightboxImg = document.getElementById('lightbox-image');
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxDownload = document.getElementById('lightbox-download');
-
-    if (!lightboxImg) return;
-
-    lightboxImg.src = state.menuUrls[state.currentMenuIndex];
-    if (state.currentMenuIndex === 0) {
-      if (lightboxTitle) lightboxTitle.textContent = 'CΛRTΛ DE PLΛTOS';
-      if (lightboxDownload) lightboxDownload.href = state.menuUrls[0];
-    } else {
-      if (lightboxTitle) lightboxTitle.textContent = 'CΛRTΛ DE COCTELERÍΛ';
-      if (lightboxDownload) lightboxDownload.href = state.menuUrls[1];
-    }
-  }
-
-  // Closes the menu lightbox and releases scroll lock if reservation modal is not open
-  function closeMenuLightbox() {
-    const lightbox = document.getElementById('menu-lightbox');
-    if (!lightbox) return;
-
-    lightbox.close();
-    
-    const resModal = document.getElementById('reservation-modal');
-    if (!resModal || !resModal.open) {
-      document.body.classList.remove('overflow-hidden');
-    }
-  }
-
-  function toggleLightboxZoom() {
-    const lightboxImg = document.getElementById('lightbox-image');
-    if (!lightboxImg) return;
-
-    state.isMenuZoomed = !state.isMenuZoomed;
-    if (state.isMenuZoomed) {
-      lightboxImg.classList.remove('cursor-zoom-in');
-      lightboxImg.classList.add('scale-[1.8]', 'cursor-zoom-out');
-    } else {
-      lightboxImg.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-      lightboxImg.classList.add('cursor-zoom-in');
-    }
-  }
+  // Lightbox functions removed
 
   // ==========================================
   // Reservation Modal & Wizard Navigation
@@ -685,6 +617,41 @@
   }
 
   // ==========================================
+  // Menu Category Images Slideshow (Autoplay & Cross-fade)
+  // ==========================================
+  function initMenuSliders() {
+    let platesIndex = 0;
+    const platesSlides = document.querySelectorAll('.menu-slide-plate');
+    
+    let drinksIndex = 0;
+    const drinksSlides = document.querySelectorAll('.menu-slide-drink');
+
+    if (platesSlides.length > 0) {
+      setInterval(() => {
+        platesSlides[platesIndex].classList.remove('opacity-100');
+        platesSlides[platesIndex].classList.add('opacity-0');
+        
+        platesIndex = (platesIndex + 1) % platesSlides.length;
+        
+        platesSlides[platesIndex].classList.remove('opacity-0');
+        platesSlides[platesIndex].classList.add('opacity-100');
+      }, 2100);
+    }
+
+    if (drinksSlides.length > 0) {
+      setInterval(() => {
+        drinksSlides[drinksIndex].classList.remove('opacity-100');
+        drinksSlides[drinksIndex].classList.add('opacity-0');
+        
+        drinksIndex = (drinksIndex + 1) % drinksSlides.length;
+        
+        drinksSlides[drinksIndex].classList.remove('opacity-0');
+        drinksSlides[drinksIndex].classList.add('opacity-100');
+      }, 2100);
+    }
+  }
+
+  // ==========================================
   // Initialization & Event Binding
   // ==========================================
 
@@ -693,6 +660,7 @@
     initExperienceSlider();
     initScrollReveal();
     initSecurityHooks();
+    initMenuSliders();
     setupInputValidationTriggers();
 
     // Dialog backdrop click closing triggers
@@ -710,76 +678,6 @@
         }
       });
     }
-
-    const menuLightbox = document.getElementById('menu-lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    if (menuLightbox) {
-      menuLightbox.addEventListener('click', (e) => {
-        const dialogDimensions = menuLightbox.getBoundingClientRect();
-        if (
-          e.clientX < dialogDimensions.left ||
-          e.clientX > dialogDimensions.right ||
-          e.clientY < dialogDimensions.top ||
-          e.clientY > dialogDimensions.bottom
-        ) {
-          closeMenuLightbox();
-        }
-      });
-
-      if (lightboxImage) {
-        lightboxImage.addEventListener('click', (e) => {
-          e.stopPropagation(); // prevent modal close on clicking image itself
-          toggleLightboxZoom();
-        });
-      }
-    }
-
-    // Keyboard support inside Menu Lightbox & Arrow triggers
-    document.addEventListener('keydown', (e) => {
-      if (menuLightbox && menuLightbox.open) {
-        if (e.key === 'Escape') closeMenuLightbox();
-        if (e.key === 'ArrowRight') {
-          state.currentMenuIndex = (state.currentMenuIndex + 1) % state.menuUrls.length;
-          updateLightboxContent();
-          state.isMenuZoomed = false;
-          if (lightboxImage) lightboxImage.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-        }
-        if (e.key === 'ArrowLeft') {
-          state.currentMenuIndex = (state.currentMenuIndex - 1 + state.menuUrls.length) % state.menuUrls.length;
-          updateLightboxContent();
-          state.isMenuZoomed = false;
-          if (lightboxImage) lightboxImage.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-        }
-      }
-    });
-
-    const prevBtn = document.getElementById('lightbox-prev-btn');
-    const nextBtn = document.getElementById('lightbox-next-btn');
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        state.currentMenuIndex = (state.currentMenuIndex - 1 + state.menuUrls.length) % state.menuUrls.length;
-        updateLightboxContent();
-        state.isMenuZoomed = false;
-        if (lightboxImage) {
-          lightboxImage.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-          lightboxImage.classList.add('cursor-zoom-in');
-        }
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        state.currentMenuIndex = (state.currentMenuIndex + 1) % state.menuUrls.length;
-        updateLightboxContent();
-        state.isMenuZoomed = false;
-        if (lightboxImage) {
-          lightboxImage.classList.remove('scale-[1.8]', 'cursor-zoom-out');
-          lightboxImage.classList.add('cursor-zoom-in');
-        }
-      });
-    }
-  }
 
   // Execute initialization
   if (document.readyState === 'loading') {
@@ -856,8 +754,6 @@
 
   window.toggleMobileMenu = toggleMobileMenu;
   window.switchMenuTab = switchMenuTab;
-  window.openMenuLightbox = openMenuLightbox;
-  window.closeMenuLightbox = closeMenuLightbox;
 
   window.nextTestimonial = nextTestimonial;
   window.prevTestimonial = prevTestimonial;
