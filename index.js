@@ -29,7 +29,7 @@
     selectedTime: '',
     selectedGuestsCount: 0,
     selectedDayOfWeek: -1, // 0-6 index
-    menuUrls: ['./carta1 (1).png', './carta1 (2).png'],
+    menuUrls: ['./carta1 (1).webp', './carta1 (2).webp'],
     currentMenuIndex: 0,
     isMenuZoomed: false
   };
