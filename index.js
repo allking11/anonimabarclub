@@ -608,11 +608,78 @@
   }
 
   // ==========================================
+  // Experience Slider Logic
+  // ==========================================
+  let experienceIndex = 0;
+  let experienceAutoplayTimer = null;
+
+  function initExperienceSlider() {
+    const container = document.getElementById('exp-slides-container');
+    const prevBtn = document.getElementById('exp-prev-btn');
+    const nextBtn = document.getElementById('exp-next-btn');
+    const dots = document.querySelectorAll('.exp-dot');
+    if (!container || dots.length === 0) return;
+
+    const totalSlides = dots.length;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      experienceIndex = index;
+
+      // Move container
+      container.style.transform = `translateX(-${experienceIndex * 100}%)`;
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        if (idx === experienceIndex) {
+          dot.classList.remove('bg-white/30');
+          dot.classList.add('bg-gold');
+        } else {
+          dot.classList.remove('bg-gold');
+          dot.classList.add('bg-white/30');
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(experienceIndex - 1);
+        resetExperienceAutoplay();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(experienceIndex + 1);
+        resetExperienceAutoplay();
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'), 10);
+        goToSlide(index);
+        resetExperienceAutoplay();
+      });
+    });
+
+    function resetExperienceAutoplay() {
+      if (experienceAutoplayTimer) clearInterval(experienceAutoplayTimer);
+      experienceAutoplayTimer = setInterval(() => {
+        goToSlide(experienceIndex + 1);
+      }, 5000);
+    }
+
+    resetExperienceAutoplay();
+  }
+
+  // ==========================================
   // Initialization & Event Binding
   // ==========================================
 
   function init() {
     initDynamicDates();
+    initExperienceSlider();
     setupInputValidationTriggers();
 
     // Dialog backdrop click closing triggers
