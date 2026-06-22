@@ -1275,3 +1275,21 @@ footer {
 .reveal-stagger.active > *:nth-child(5) { transition-delay: 500ms; }
 .reveal-stagger.active > *:nth-child(6) { transition-delay: 600ms; }
 
+/* ==========================================
+   SECURITY & ANTI-COPY PROTECTION
+   ========================================== */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+

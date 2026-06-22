@@ -667,6 +667,24 @@
   }
 
   // ==========================================
+  // Security & Anti-Copy Protection
+  // ==========================================
+  function initSecurityHooks() {
+    // Disable right click context menu (except on input/textarea fields)
+    window.addEventListener('contextmenu', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      e.preventDefault();
+    });
+
+    // Disable dragging of images (to prevent download dragging)
+    window.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // ==========================================
   // Initialization & Event Binding
   // ==========================================
 
@@ -674,6 +692,7 @@
     initDynamicDates();
     initExperienceSlider();
     initScrollReveal();
+    initSecurityHooks();
     setupInputValidationTriggers();
 
     // Dialog backdrop click closing triggers
