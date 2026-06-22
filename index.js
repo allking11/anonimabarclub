@@ -496,12 +496,10 @@
   function validateForm() {
     let isValid = true;
     const nameEl = document.getElementById('contact-name');
-    const phoneEl = document.getElementById('contact-phone');
 
-    if (!nameEl || !phoneEl) return false;
+    if (!nameEl) return false;
 
     const nameVal = nameEl.value.trim();
-    const phoneVal = phoneEl.value.trim();
 
     // Name check
     if (!nameVal) {
@@ -520,28 +518,12 @@
       }
     }
 
-    // Phone check
-    if (!phoneVal) {
-      showError('contact-phone', 'Por favor, ingresa tu número de WhatsApp.');
-      isValid = false;
-    } else {
-      // Basic WhatsApp digits validation (exclude formatting characters)
-      const digits = phoneVal.replace(/[\s\-\(\)\+]/g, '');
-      if (digits.length < 8 || isNaN(digits)) {
-        showError('contact-phone', 'Por favor, ingresa un número de WhatsApp válido.');
-        isValid = false;
-      } else {
-        clearError('contact-phone');
-      }
-    }
-
     return isValid;
   }
 
   // Pre-load typing validation triggers
   function setupInputValidationTriggers() {
     const nameEl = document.getElementById('contact-name');
-    const phoneEl = document.getElementById('contact-phone');
 
     if (nameEl) {
       nameEl.addEventListener('blur', () => {
@@ -554,18 +536,6 @@
       });
       nameEl.addEventListener('focus', () => clearError('contact-name'));
     }
-
-    if (phoneEl) {
-      phoneEl.addEventListener('blur', () => {
-        const val = phoneEl.value.trim();
-        if (val) {
-          const digits = val.replace(/[\s\-\(\)\+]/g, '');
-          if (digits.length < 8 || isNaN(digits)) showError('contact-phone', 'Por favor, ingresa un número de WhatsApp válido.');
-          else clearError('contact-phone');
-        }
-      });
-      phoneEl.addEventListener('focus', () => clearError('contact-phone'));
-    }
   }
 
   function handleReservationSubmit(event) {
@@ -574,7 +544,6 @@
     if (!validateForm()) return;
 
     const name = document.getElementById('contact-name').value.trim();
-    const phone = document.getElementById('contact-phone').value.trim();
     const requests = document.getElementById('contact-requests').value.trim() || 'Ninguno';
 
     // Parse Selected Date details for highly readable text
@@ -593,7 +562,6 @@
       `📅 *Fecha:* ${formattedSpanishDate}\n` +
       `⏰ *Hora:* ${state.selectedTime} hs\n` +
       `👥 *Mesa para:* ${state.selectedGuestsCount} ${guestGrammar}\n` +
-      `📱 *WhatsApp:* ${phone}\n` +
       `💬 *Notas/Pedidos:* ${requests}\n\n` +
       `Quedo a la espera de su confirmación y de las indicaciones de acceso en Barranquilla. ¡Muchas gracias!`;
 
