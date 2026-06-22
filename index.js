@@ -1,5 +1,5 @@
 /**
- * Anónimo Cocina & Bar - Interactive Logic (Vanilla JS)
+ * Anónima Cocina & Bar - Interactive Logic (Vanilla JS)
  * This script manages the scrolling header, mobile menu, gastronomy tabs, 
  * menu lightbox view, and the multi-step reservation modal with dynamic 7-day calendar.
  */
@@ -488,7 +488,7 @@
     const formattedSpanishDate = `${DAYS_FULL[d.getDay()]} ${day} de ${MONTHS_FULL[month]} de ${year}`;
     const guestGrammar = state.selectedGuestsCount === 1 ? 'persona' : 'personas';
 
-    const msg = `¡Hola Anónimo Cocina & Bar! 🥂\n\n` +
+    const msg = `¡Hola Anónima Cocina & Bar! 🥂\n\n` +
       `Me gustaría realizar una reserva con los siguientes detalles:\n\n` +
       `👤 *Nombre:* ${name}\n` +
       `📅 *Fecha:* ${formattedSpanishDate}\n` +
