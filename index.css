@@ -1240,3 +1240,38 @@ footer {
         border-bottom-color: #000000 !important;
     }
 }
+
+/* ==========================================
+   SCROLL REVEAL APPEARING EFFECTS
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1), transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-stagger.active > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger.active > *:nth-child(1) { transition-delay: 100ms; }
+.reveal-stagger.active > *:nth-child(2) { transition-delay: 200ms; }
+.reveal-stagger.active > *:nth-child(3) { transition-delay: 300ms; }
+.reveal-stagger.active > *:nth-child(4) { transition-delay: 400ms; }
+.reveal-stagger.active > *:nth-child(5) { transition-delay: 500ms; }
+.reveal-stagger.active > *:nth-child(6) { transition-delay: 600ms; }
+
