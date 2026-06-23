@@ -786,6 +786,9 @@
 
     if (!chatbotToggle || !chatbotWindow || !chatbotClose || !chatbotMessages || !chatbotForm || !chatbotInput) return;
 
+    // Set to keep track of already answered FAQs
+    const answeredFaqIds = new Set();
+
     // Toggle Chatbot Window
     chatbotToggle.addEventListener('click', () => {
       chatbotWindow.classList.toggle('chatbot-open');
@@ -841,6 +844,15 @@
       } else if (cleanedText.includes('menu') || cleanedText.includes('carta') || cleanedText.includes('trago') || cleanedText.includes('coctel') || cleanedText.includes('comida') || cleanedText.includes('plato') || cleanedText.includes('precio') || cleanedText.includes('beber') || cleanedText.includes('comer')) {
         matchedFaq = CHATBOT_FAQS.find(f => f.id === 'menu');
       }
+
+      // Mark matched FAQ as answered
+      if (matchedFaq) {
+        answeredFaqIds.add(matchedFaq.id);
+      }
+
+      // Remove any existing FAQ choice buttons to keep conversation flow clean
+      const oldFaqWrappers = chatbotMessages.querySelectorAll('.pl-10.5');
+      oldFaqWrappers.forEach(w => w.remove());
 
       showTypingIndicator();
 
@@ -909,18 +921,33 @@
       if (typing) typing.remove();
     }
 
-    // Renders custom styled clickable option buttons
+    // Renders custom styled clickable option buttons (excluding already answered ones)
     function renderFAQs() {
+      // If all questions have been answered, reset the set so they can be explored again
+      if (answeredFaqIds.size === CHATBOT_FAQS.length) {
+        answeredFaqIds.clear();
+      }
+
+      // Remove any existing FAQ wrappers first to avoid duplicate options
+      const oldFaqWrappers = chatbotMessages.querySelectorAll('.pl-10.5');
+      oldFaqWrappers.forEach(w => w.remove());
+
+      const remainingFaqs = CHATBOT_FAQS.filter(faq => !answeredFaqIds.has(faq.id));
+      if (remainingFaqs.length === 0) return;
+
       const faqWrapper = document.createElement('div');
       faqWrapper.className = 'chat-message-bubble pl-10.5 flex flex-col gap-2 pt-1.5';
       
-      CHATBOT_FAQS.forEach(faq => {
+      remainingFaqs.forEach(faq => {
         const btn = document.createElement('button');
         btn.className = 'chatbot-faq-btn';
         btn.innerHTML = faq.label;
         btn.addEventListener('click', () => {
           // Remove options from view so they aren't clicked multiple times
           faqWrapper.remove();
+          
+          // Mark as answered
+          answeredFaqIds.add(faq.id);
           
           // Add user's question
           addChatMessage(faq.question, true);
