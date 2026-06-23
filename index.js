@@ -738,6 +738,212 @@
     }, 6000);
   }
 
+  // ==========================================
+  // CHATBOT INTERACTIVE DEMO (MÍSTICΛ)
+  // ==========================================
+  const CHATBOT_FAQS = [
+    {
+      id: 'ubicacion',
+      label: '📍 ¿Dónde están ubicados?',
+      question: '¿Dónde están ubicados?',
+      answer: 'Anónima es un speakeasy exclusivo en Barranquilla, Colombia. Nuestra ubicación exacta es **Calle 93 #43-41, Barrio Norte Centro Histórico**. Sin embargo, las indicaciones de acceso secretas te serán provistas una vez confirmes tu reserva para mantener la atmósfera selecta y misteriosa del lugar. 🤫🚪'
+    },
+    {
+      id: 'horarios',
+      label: '⏰ ¿Cuáles son los horarios?',
+      question: '¿Cuáles son los horarios de atención?',
+      answer: 'Nuestros horarios de atención son:\n• **Martes a Jueves:** 6:00 PM a 12:00 AM\n• **Viernes y Sábados:** 6:00 PM a 3:00 AM\n• **Domingos y Lunes:** Cerrados por descanso de nuestro equipo. ¡Te esperamos para planear tu noche! 🍸✨'
+    },
+    {
+      id: 'reserva',
+      label: '📅 ¿Cómo hago una reserva?',
+      question: '¿Cómo realizo una reserva?',
+      answer: 'Puedes reservar de manera directa y rápida haciendo clic en el botón **"PLΛNEΛR TU NOCHE"** en la pantalla principal. Nuestro sistema interactivo te guiará para elegir fecha, hora y cantidad de comensales, y generará tu ticket directo a WhatsApp para la confirmación. 🎟️'
+    },
+    {
+      id: 'vestimenta',
+      label: '👗 ¿Tienen código de vestimenta?',
+      question: '¿Tienen código de vestimenta?',
+      answer: 'Mantenemos un código de vestimenta **Smart Casual / Elegante**. Agradecemos evitar el ingreso con ropa deportiva, sandalias playeras, gorras o bermudas de baño para mantener la atmósfera selecta del speakeasy. ¡Vístete para una noche especial! 👔✨'
+    },
+    {
+      id: 'menu',
+      label: '🍸 ¿Qué tipo de carta ofrecen?',
+      question: '¿Qué tipo de gastronomía y coctelería ofrecen?',
+      answer: 'Ofrecemos alta gastronomía fusión de autor diseñada para acompañar la noche y coctelería conceptual experimental de primer nivel elaborada por mixólogos profesionales. Puedes ver fotos de algunos de nuestros platos y tragos estrella en la sección **"NUESTRΛ CΛRTΛ"** de esta página. 🍽️🍹'
+    }
+  ];
+
+  let isChatbotFirstOpen = true;
+
+  function initChatbot() {
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotForm = document.getElementById('chatbot-form');
+    const chatbotInput = document.getElementById('chatbot-input');
+
+    if (!chatbotToggle || !chatbotWindow || !chatbotClose || !chatbotMessages || !chatbotForm || !chatbotInput) return;
+
+    // Toggle Chatbot Window
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('chatbot-open');
+      
+      // Hide Notification Dot
+      const pulseDot = chatbotToggle.querySelector('.animate-pulse');
+      if (pulseDot) pulseDot.remove();
+
+      if (chatbotWindow.classList.contains('chatbot-open')) {
+        chatbotInput.focus();
+        
+        if (isChatbotFirstOpen) {
+          isChatbotFirstOpen = false;
+          showTypingIndicator();
+          
+          setTimeout(() => {
+            hideTypingIndicator();
+            addChatMessage('¡Hola! Bienvenido a **Anónima Cocina & Bar**. Soy Mística, tu guía virtual. ¿En qué te puedo ayudar hoy? 🥂');
+            renderFAQs();
+          }, 1000);
+        }
+      }
+    });
+
+    // Close Chatbot Window
+    chatbotClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      chatbotWindow.classList.remove('chatbot-open');
+    });
+
+    // Form Submit
+    chatbotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+
+      // Add user message
+      addChatMessage(text, true);
+      chatbotInput.value = '';
+
+      // Match custom keywords
+      const cleanedText = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // strip accents
+      let matchedFaq = null;
+
+      if (cleanedText.includes('reserva') || cleanedText.includes('reservar') || cleanedText.includes('mesa') || cleanedText.includes('ticket') || cleanedText.includes('book')) {
+        matchedFaq = CHATBOT_FAQS.find(f => f.id === 'reserva');
+      } else if (cleanedText.includes('ubicacion') || cleanedText.includes('donde') || cleanedText.includes('direccion') || cleanedText.includes('calle') || cleanedText.includes('queda') || cleanedText.includes('barranquilla') || cleanedText.includes('lugar')) {
+        matchedFaq = CHATBOT_FAQS.find(f => f.id === 'ubicacion');
+      } else if (cleanedText.includes('horario') || cleanedText.includes('hora') || cleanedText.includes('abren') || cleanedText.includes('cierran') || cleanedText.includes('abierto') || cleanedText.includes('cerrado') || cleanedText.includes('atencion')) {
+        matchedFaq = CHATBOT_FAQS.find(f => f.id === 'horarios');
+      } else if (cleanedText.includes('vestimenta') || cleanedText.includes('ropa') || cleanedText.includes('vestir') || cleanedText.includes('codigo') || cleanedText.includes('elegante') || cleanedText.includes('casual') || cleanedText.includes('entrar')) {
+        matchedFaq = CHATBOT_FAQS.find(f => f.id === 'vestimenta');
+      } else if (cleanedText.includes('menu') || cleanedText.includes('carta') || cleanedText.includes('trago') || cleanedText.includes('coctel') || cleanedText.includes('comida') || cleanedText.includes('plato') || cleanedText.includes('precio') || cleanedText.includes('beber') || cleanedText.includes('comer')) {
+        matchedFaq = CHATBOT_FAQS.find(f => f.id === 'menu');
+      }
+
+      showTypingIndicator();
+
+      setTimeout(() => {
+        hideTypingIndicator();
+        if (matchedFaq) {
+          addChatMessage(matchedFaq.answer);
+        } else {
+          addChatMessage('Gracias por escribirme. Actualmente estoy en **modo demostración** 🍸.\n\nPuedes hacerme preguntas directas sobre nuestro *horario, ubicación, código de vestimenta, carta o cómo reservar*, o bien seleccionar cualquiera de las siguientes preguntas frecuentes:');
+        }
+        renderFAQs();
+      }, 1200);
+    });
+
+    // Helper functions
+    function addChatMessage(text, isUser = false) {
+      const bubbleContainer = document.createElement('div');
+      bubbleContainer.className = isUser ? 'flex justify-end chat-message-bubble' : 'flex items-start gap-2.5 chat-message-bubble';
+
+      const formattedText = text
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+      if (isUser) {
+        bubbleContainer.innerHTML = `
+          <div class="bg-gold/15 border border-gold/30 text-white rounded-2xl rounded-tr-none px-4 py-2.5 max-w-[80%] text-xs leading-relaxed font-sans shadow-md">
+            ${formattedText}
+          </div>
+        `;
+      } else {
+        bubbleContainer.innerHTML = `
+          <div class="w-8 h-8 rounded-full border border-gold/30 overflow-hidden flex-shrink-0">
+            <img src="./logo.webp" alt="Mística" class="w-full h-full object-cover">
+          </div>
+          <div class="bg-dark-pure border border-dark-border text-gray-200 rounded-2xl rounded-tl-none px-4 py-2.5 max-w-[75%] text-xs leading-relaxed font-sans shadow-sm">
+            ${formattedText}
+          </div>
+        `;
+      }
+
+      chatbotMessages.appendChild(bubbleContainer);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const typingContainer = document.createElement('div');
+      typingContainer.id = 'chatbot-typing';
+      typingContainer.className = 'flex items-start gap-2.5 chat-message-bubble';
+      typingContainer.innerHTML = `
+        <div class="w-8 h-8 rounded-full border border-gold/30 overflow-hidden flex-shrink-0">
+          <img src="./logo.webp" alt="Mística" class="w-full h-full object-cover">
+        </div>
+        <div class="bg-dark-pure border border-dark-border rounded-2xl rounded-tl-none px-4 py-3 flex gap-1 items-center shadow-sm">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      `;
+      chatbotMessages.appendChild(typingContainer);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function hideTypingIndicator() {
+      const typing = document.getElementById('chatbot-typing');
+      if (typing) typing.remove();
+    }
+
+    // Renders custom styled clickable option buttons
+    function renderFAQs() {
+      const faqWrapper = document.createElement('div');
+      faqWrapper.className = 'chat-message-bubble pl-10.5 flex flex-col gap-2 pt-1.5';
+      
+      CHATBOT_FAQS.forEach(faq => {
+        const btn = document.createElement('button');
+        btn.className = 'chatbot-faq-btn';
+        btn.innerHTML = faq.label;
+        btn.addEventListener('click', () => {
+          // Remove options from view so they aren't clicked multiple times
+          faqWrapper.remove();
+          
+          // Add user's question
+          addChatMessage(faq.question, true);
+          
+          // Trigger response
+          showTypingIndicator();
+          setTimeout(() => {
+            hideTypingIndicator();
+            addChatMessage(faq.answer);
+            renderFAQs();
+          }, 1000);
+        });
+        faqWrapper.appendChild(btn);
+      });
+
+      chatbotMessages.appendChild(faqWrapper);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  }
+
+  // Initialize Chatbot logic
+  initChatbot();
+
   // Start autoplay on load
   resetTestimonialAutoplay();
 
